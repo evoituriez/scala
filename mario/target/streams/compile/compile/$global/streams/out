@@ -1,0 +1,16 @@
+[0m[[0m[31merror[0m] [0m[0m/Users/evoituriez/Sites/scala/mario/mario.scala:3:7: Personnage is already defined as class Personnage[0m
+[0m[[0m[31merror[0m] [0m[0mclass Personnage {[0m
+[0m[[0m[31merror[0m] [0m[0m      ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/evoituriez/Sites/scala/mario/mario.scala:34:8: Ennemi is already defined as class Ennemi[0m
+[0m[[0m[31merror[0m] [0m[0m	class Ennemi {[0m
+[0m[[0m[31merror[0m] [0m[0m	      ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/evoituriez/Sites/scala/mario/mario.scala:43:8: Boss is already defined as class Boss[0m
+[0m[[0m[31merror[0m] [0m[0m	class Boss {[0m
+[0m[[0m[31merror[0m] [0m[0m	      ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/evoituriez/Sites/scala/mario/mario.scala:52:8: Princesse is already defined as class Princesse[0m
+[0m[[0m[31merror[0m] [0m[0m	class Princesse {[0m
+[0m[[0m[31merror[0m] [0m[0m	      ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/evoituriez/Sites/scala/mario/mario.scala:66:7: Jeu is already defined as class Jeu[0m
+[0m[[0m[31merror[0m] [0m[0mclass Jeu {[0m
+[0m[[0m[31merror[0m] [0m[0m      ^[0m
+[0m[[0m[31merror[0m] [0m[0m5 errors found[0m
