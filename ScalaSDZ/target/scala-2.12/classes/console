@@ -1,0 +1,8 @@
+import scala.io.StdIn.readLine
+
+object Main {
+  def main(arg: Array[String]) : Unit = {
+    val s = readLine
+    println("Vous avez écrit: " + s)
+  }
+}
