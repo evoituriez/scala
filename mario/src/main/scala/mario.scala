@@ -126,3 +126,8 @@ class Jeu {
 		}
 	}
 }
+
+/*object Main extends App {
+	val j = new Jeu
+	j.commencerLeJeu
+}*/
