@@ -1,1 +1,1 @@
-scalac -classpath /Users/evoituriez/Sites/scala/mario/target/scala-2.12/classes -bootclasspath /Users/evoituriez/.sbt/boot/scala-2.12.4/lib/scala-library.jar /Users/evoituriez/Sites/scala/mario/mario.scala
+scalac -classpath /Users/evoituriez/Sites/scala/mario/target/scala-2.12/classes -bootclasspath /Users/evoituriez/.sbt/boot/scala-2.12.4/lib/scala-library.jar /Users/evoituriez/Sites/scala/mario/src/main/scala/mario.scala

@@ -1,8 +1,24 @@
-import scala.io.StdIn.readLine
-
-object Main {
-  def main(arg: Array[String]) : Unit = {
-    val s = readLine
-    println("Vous avez écrit: " + s)
-  }
+class Zero (val nom: String, var age: Int, var citation: String = "Aucune citation") {
+  //Zozor.envoyerMessage(this)
+  def this(_age: Int, _nom: String, _citation: String = "Aucune citation") =
+    this(_nom, _age, _citation)
 }
+
+
+
+
+
+/*object Zero {
+  def apply(nom: String, age: Int, citation: String = "Aucune citation") = {
+    //L'argument citation est facultatif, on lui donne donc une valeur par défaut
+    val resultat = new Zero
+    resultat.nom = nom
+    resultat.age = age
+    resultat.citation = citation
+    resultat // return resultat
+  }
+}*/
+
+val einstein = new Zero(21,"Einstein++","test")
+//val michel = new Zero(15,"Michel","Quelle vie...")
+
