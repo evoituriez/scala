@@ -74,5 +74,5 @@ jojo/src/test/
 mario/src/test/
 
 .idea/*
-*/.idea
-*/target/**/*
+*/.idea/
+project/target/
