@@ -4,7 +4,7 @@
 		module="jojo_2.12"
 		revision="0.1"
 		status="integration"
-		publication="20180315133315"
+		publication="20180325192550"
 	>
 		<description>
 		jojo
@@ -30,7 +30,7 @@
 		<artifact name="jojo_2.12" type="doc" ext="jar" conf="compile" e:classifier="javadoc"/>
 	</publications>
 	<dependencies>
-		<dependency org="org.scala-lang" name="scala-compiler" rev="2.12.4" conf="scala-tool->default,optional(default)"/>
-		<dependency org="org.scala-lang" name="scala-library" rev="2.12.4" conf="scala-tool->default,optional(default);compile->default(compile)"/>
+		<dependency org="org.scala-lang" name="scala-compiler" rev="2.12.5" conf="scala-tool->default,optional(default)"/>
+		<dependency org="org.scala-lang" name="scala-library" rev="2.12.5" conf="scala-tool->default,optional(default);compile->default(compile)"/>
 	</dependencies>
 </ivy-module>
