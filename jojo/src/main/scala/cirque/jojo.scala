@@ -4,11 +4,18 @@ sealed trait Nourriture
 class NourritureCarnivore extends Nourriture
 class NourritureHerbivore extends Nourriture
 
-sealed abstract class Animal(protected val nom: String, protected var dresse: Boolean = false) {
+sealed trait Animal {
 
+  type N <: Nourriture
+  protected val nom: String
+
+  protected var dresse = false
   protected var aFaim = false
 
-  private[cirque] def manger(n: Nourriture): Unit = aFaim = false
+  private[cirque] def manger(n: N): Unit = {
+    aFaim = false
+    println("Nourriture : " + n)
+  }
 
   private[cirque] def faireLeShow: Unit = println("Je ne fais rien")
 
@@ -19,21 +26,18 @@ sealed abstract class Animal(protected val nom: String, protected var dresse: Bo
 
 }
 
-trait Carnivore extends Animal {
-  private[cirque] def manger(n: NourritureCarnivore): Unit = {
-    aFaim = false
-    println("Nourriture : " + n)
-  }
+sealed trait Carnivore extends Animal {
+  override type N = NourritureCarnivore
+}
+sealed trait Herbivore extends Animal {
+  override type N = NourritureHerbivore
+}
+sealed trait Omnivore extends Animal {
+  override type N = Nourriture
 }
 
-trait Herbivore extends Animal {
-  private[cirque] def manger(n: NourritureHerbivore): Unit = {
-    aFaim = false
-    println("Nourriture : " + n)
-  }
-}
+class Chien(override val nom: String) extends Carnivore {
 
-class Chien(n: String, d: Boolean) extends Animal(n, d) with Carnivore {
   def seDeplacer: String = "Je marche"
 
   override def faireLeShow: Unit = if (this.dresse && !this.aFaim) {
@@ -41,12 +45,9 @@ class Chien(n: String, d: Boolean) extends Animal(n, d) with Carnivore {
     this.aFaim = true
   } else super.faireLeShow
 
-  override private[cirque] def manger(n: NourritureCarnivore): Unit = {
-    aFaim = false
-  }
 }
 
-class Serpent(n: String, d: Boolean) extends Animal(n, d) with Carnivore {
+class Serpent(override protected val nom: String) extends Carnivore {
   def seDeplacer: String = "Je glisse"
 
   override def faireLeShow: Unit = if (this.dresse && !this.aFaim) {
@@ -54,12 +55,9 @@ class Serpent(n: String, d: Boolean) extends Animal(n, d) with Carnivore {
     this.aFaim = true
   } else super.faireLeShow
 
-  override private[cirque] def manger(a: NourritureCarnivore): Unit = {
-    aFaim = false
-  }
 }
 
-class Poisson(n: String, d: Boolean) extends Animal(n, d) with Carnivore {
+class Poisson(override protected val nom: String) extends Carnivore {
   def seDeplacer: String = "Je nage"
 
   override def faireLeShow: Unit = if (this.dresse && !this.aFaim) {
@@ -67,21 +65,10 @@ class Poisson(n: String, d: Boolean) extends Animal(n, d) with Carnivore {
     this.aFaim = true
   } else super.faireLeShow
 
-  override private[cirque] def manger(a: NourritureCarnivore): Unit = {
-    aFaim = false
-    println("Nourriture : " + a)
-  }
 }
 
-object Spot extends Animal("Spot", false) with Carnivore with Herbivore {
-
-  override private[cirque] def manger(a: NourritureCarnivore): Unit = {
-    aFaim = false
-  }
-
-  override private[cirque] def manger(n: NourritureHerbivore): Unit = {
-    aFaim = false
-  }
+object Spot extends Omnivore {
+  override protected val nom: String = "Spot"
 }
 
 object Jojo {
@@ -89,15 +76,15 @@ object Jojo {
 
   def faireLeShow(a: Animal): Unit = a.faireLeShow
 
-  def faireMangerC(carnivore: Animal, viande: NourritureCarnivore): Unit = carnivore.manger(viande: NourritureCarnivore)
-
-  def faireMangerH(herbivore: Animal, salade: NourritureHerbivore): Unit = herbivore.manger(salade: NourritureHerbivore)
+  def faireManger(animal: Omnivore, nourriture: Omnivore#N): Unit = animal.manger(nourriture)
+  def faireManger(animal: Carnivore, nourriture: Carnivore#N): Unit = animal.manger(nourriture)
+  def faireManger(animal: Herbivore, nourriture: Herbivore#N): Unit = animal.manger(nourriture)
 }
 
 object Main extends App {
 
-  val chien: Animal = new Chien("Bobby", false)
-  val serpent: Animal = new Serpent("Garry", false)
+  val chien: Chien = new Chien("Bobby")
+  val serpent: Serpent = new Serpent("Garry")
   val salade: NourritureHerbivore = new NourritureHerbivore
   val viande: NourritureCarnivore = new NourritureCarnivore
 
@@ -105,5 +92,10 @@ object Main extends App {
   Jojo.faireLeShow(chien)
   Jojo.faireLeShow(chien)
   Jojo.faireLeShow(serpent)
-  Jojo.faireMangerC(chien, viande)
+  Jojo.dresser(Spot)
+  Jojo.faireLeShow(Spot)
+  Jojo.faireManger(Spot, viande)
+  Jojo.faireManger(Spot, salade)
+  Jojo.faireManger(chien, viande)
+
 }
