@@ -1,6 +1,6 @@
 package pokemon_stadium
 
-class Defense(nom: String, defense: Defense, precision: Float, puissance: Float) {
+class Defense(nom: String, defense: Defense, precision: Double, puissance: Double) {
 
 }
 

@@ -1,12 +1,27 @@
 package pokemon_stadium
 
-abstract class Type {
-  def typeAttaque: Unit
+trait Type {
+  val typename = "Aucun type"
 }
 
-trait Eau extends Type
-trait Feu extends Type
-trait Psy extends Type
-trait Elec extends Type
-trait Air extends Type
-trait Terre extends Type
+trait Elec extends Type {
+  override val typename = "Electricité"
+}
+
+trait Feu extends Type {
+  override val typename = "Feu"
+}
+
+/*trait Eau extends Type {
+  val nom: String = "Eau"
+}
+trait Psy extends Type {
+  val nom: String = "Psy"
+}
+
+trait Air extends Type {
+  val nom: String = "Air"
+}
+trait Terre extends Type {
+  val nom: String = "Terre"
+}*/
