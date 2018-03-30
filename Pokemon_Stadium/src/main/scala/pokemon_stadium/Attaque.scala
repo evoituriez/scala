@@ -10,17 +10,17 @@ trait Attaque extends Type {
 
 object AttaqueLanceFlamme extends Attaque with Feu {
   override val puissance: Double = 10
-  override val precision: Int = 50
+  override val precision: Int = 75
 }
 
 object AttaqueEclair extends Attaque with Elec {
   override val puissance: Double = 5
-  override val precision: Int = 25
+  override val precision: Int = 90
 }
 
 object AttaqueKarsher extends Attaque with Eau {
   override val puissance: Double = 20
-  override val precision: Int = 10
+  override val precision: Int = 50
 }
 
 

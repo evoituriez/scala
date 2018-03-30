@@ -10,13 +10,10 @@ class Jeu(joueur1: Joueur, joueur2: Joueur) {
   joueur2.nom = "Marine"
 
   joueur1.acheter(Pikachu, Dracofeu, Tortank)
-  joueur1.lancerAttaque(AttaqueLanceFlamme, Dracofeu, Raichu)
+  joueur2.acheter(Raichu, Dracofeu, Tortank)
 
   println("Début du Jeu")
-  println(AttaqueLanceFlamme.typename)
+  joueur1.lancerAttaque(AttaqueLanceFlamme, Dracofeu, Raichu)
 
-  println(AttaqueLanceFlamme.puissance)
-  Pikachu.attaquer(AttaqueLanceFlamme, Dracofeu)
-  println(Dracofeu.pv)
-  alternance.alterner
+  Pikachu.attaquer(AttaqueEclair, Dracofeu)
 }

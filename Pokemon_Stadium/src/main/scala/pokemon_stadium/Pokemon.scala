@@ -5,27 +5,27 @@ abstract protected class Pokemon(val nom: String, var pv_max: Double) extends Ty
   var nb_attaque: Int = 2
   var aobjet: Boolean = false
   //var objet: Objet = "Baie"
+  var hasAttaqued: Boolean = false
 
   private val random = scala.util.Random
 
   def attaquer(a: Attaque, p: Pokemon): Unit = {
-
-    val chance: Int = 100 / a.precision - 1
-    val hasChance: Boolean = random.nextInt(chance) != 0
+    var hasAttacked: Boolean = false
+    val hasChance: Boolean = random.nextInt(99) <= a.precision
     val pokeHasAttackType: Boolean = a.typename == typename
 
     if (hasChance) {
       if (pokeHasAttackType) {
         p.pv -= a.puissance * 1.5
-        val hasAttacked = true
+        println(nom + " a attaqué !")
       }
       else {
         p.pv -= a.puissance
-        val hasAttacked = true
+        println(nom + " a attaqué !")
       }
     }
     else {
-      val hasAttacked = false
+      println(nom + " a manqué sa cible !")
     }
   }
 }
