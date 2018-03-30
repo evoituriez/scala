@@ -1,9 +1,7 @@
 package pokemon_stadium
 
 object Main extends App {
-    println("Début du Jeu")
-    println(AttaqueLanceFlamme.typename)
-    println(AttaqueLanceFlamme.puissance)
-    Pikachu.attaquer(AttaqueLanceFlamme, Dracofeu)
-    println(Dracofeu.pv)
+    val j1 = new Joueur
+    val j2 = new Joueur
+    val jeu: Jeu = new Jeu(j1, j2)
 }

@@ -12,9 +12,11 @@ trait Feu extends Type {
   override val typename = "Feu"
 }
 
-/*trait Eau extends Type {
-  val nom: String = "Eau"
+trait Eau extends Type {
+  override val typename = "Eau"
 }
+
+/*
 trait Psy extends Type {
   val nom: String = "Psy"
 }

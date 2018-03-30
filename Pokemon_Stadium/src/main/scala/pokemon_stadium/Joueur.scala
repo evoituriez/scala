@@ -1,9 +1,39 @@
 package pokemon_stadium
 
-class Joueur
+class Joueur {
+  var nom: String = "Anonyme"
 
-class Alternance(val joueur1: Joueur, val joueur2: Joueur) {
-  private var joueurActuel = joueur1
-  def alterner = if (joueurActuel == joueur1) joueur2 else joueur1
-  def joueur = joueurActuel
+  var pokemons: Set[Pokemon] = Set.empty
+
+  def acheter(poke1: Pokemon, poke2: Pokemon, poke3: Pokemon): Unit = {
+    pokemons = pokemons ++ Set(poke1, poke2, poke3)
+  }
+
+
+  def lancerAttaque(a: Attaque, to: Pokemon, from: Pokemon): Unit = {
+
+    val hasPokemon = pokemons.contains(from)
+    val pokeIsDead: Boolean = from.pv.equals(0)
+
+    if (hasPokemon) {
+      if (!pokeIsDead) {
+        from.attaquer(a, to)
+      } else {
+        print(from.nom + " est mort !")
+      }
+    } else {
+      println(from.nom + " ne fait pas parti de votre liste de Pokemon")
+    }
+
+
+  // Int => Int => Int
+
+  // Pokemon => Boolean
+
+    // exists(p: Pokemon => Boolean): Boolean
+    // filter(p: Pokemon => Boolean): Set[Boolean]
+
+  }
 }
+
+
