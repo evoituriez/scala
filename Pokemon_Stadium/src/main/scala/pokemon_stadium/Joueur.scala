@@ -5,10 +5,10 @@ class Joueur {
 
   var pokemons: Set[Pokemon] = Set.empty
 
-  def acheter(poke1: Pokemon, poke2: Pokemon, poke3: Pokemon): Unit = {
+  def acheter(poke1: Pokemon, poke2: Pokemon, poke3: Pokemon, o: Objet): Unit = {
     pokemons = pokemons ++ Set(poke1, poke2, poke3)
+    var objet: Objet = o
   }
-
 
   def lancerAttaque(a: Attaque, to: Pokemon, from: Pokemon): Unit = {
 

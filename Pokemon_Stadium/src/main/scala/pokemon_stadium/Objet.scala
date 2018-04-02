@@ -1,6 +1,5 @@
-/*package pokemon_stadium
+package pokemon_stadium
 
-class Objet {
-  type Baie: String = "Baie"
-}
-*/
+class Objet
+
+object Baie extends Objet
