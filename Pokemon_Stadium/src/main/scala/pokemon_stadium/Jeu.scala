@@ -8,21 +8,23 @@ class Jeu(j1: Joueur, j2: Joueur) {
   j1.nom = scala.io.StdIn.readLine()
   print("Nommer le joueur 2 : ")
   j2.nom = scala.io.StdIn.readLine()
-  var pokeList: Array[Pokemon] = Array(Pikachu, Dracofeu, Tortank, Raichu)
+  var pokeListMap: Map[Int, String] = Map(1 -> Pikachu.nom, 2 -> Dracofeu.nom, 3 -> Tortank.nom, 4 -> Raichu.nom)
 
   println(j1.nom + ", choisis 3 pokemons parmi la liste suivante :")
-    for (i <- pokeList) {
-      println(i.nom)
+  var k: Int = 1
+  for (i <- pokeListMap(k) if k <= pokeListMap.size) {
+      println(k + ". " + pokeListMap(k))
+      k += 1
     }
     print("Pokemon 1 : ")
-    val j1p1 = scala.io.StdIn.readInt()
+    val j1p1: String = scala.io.StdIn.readLine()
     print("Pokemon 2 : ")
-    val j1p2 = scala.io.StdIn.readInt()
+    val j1p2: String = scala.io.StdIn.readLine()
     print("Pokemon 3 : ")
-    val j1p3 = scala.io.StdIn.readInt()
+    val j1p3: String = scala.io.StdIn.readLine()
 
-    var j1poke1: Pokemon = pokeList(j1p1)
-    var j1poke2: Pokemon = pokeList(j1p2)
+    var j1poke1: Pokemon = pokeListMap(j1p1)
+    /*var j1poke2: Pokemon = pokeList(j1p2)
     var j1poke3: Pokemon = pokeList(j1p3)
 
     j1.acheter(j1poke1, j1poke2, j1poke3, Baie)
@@ -53,7 +55,7 @@ class Jeu(j1: Joueur, j2: Joueur) {
 
 
   println("Début du Jeu")
-  j1.lancerAttaque(AttaqueLanceFlamme, Dracofeu, Pikachu)
+  j1.lancerAttaque(AttaqueLanceFlamme, Dracofeu, Pikachu)*/
 
 
   //Pikachu.attaquer(AttaqueEclair, Dracofeu)
